@@ -39,7 +39,7 @@ app.post("/api/notes", function(req, res) {
   // access the POSTed data in req.body
   // create id
   var note = req.body
-  var id = database.length+1
+  var id = "newId" + database.length
   note.id = id
   console.log(note.id, id)
   
