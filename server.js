@@ -14,7 +14,7 @@ app.get("/api/notes", function(req, res) {
 
   // use the fs to read file
   
-  // .then parse file contents with JSON.parse() to the real data
+  // then parse file contents with JSON.parse() to the real data
 
   // send the parsed data back to the client with res.json()
   //  return res.json();
@@ -27,7 +27,7 @@ app.post("/api/notes", function(req, res) {
 
   // use the fs to read file
   
-  // .then parse file contents with JSON.parse() to the real data
+  // then parse file contents with JSON.parse() to the real data
 
   // PUSH the req.body to the arr list 
 
@@ -44,7 +44,7 @@ app.delete('/api/notes/:id', function (req, res) {
 
   // use the fs to read file
 
-  // .then parse file contents with JSON.parse() to the real data
+  // then parse file contents with JSON.parse() to the real data
 
   // Optioin A
   // find the matching index using Array.findIndex()
@@ -58,14 +58,14 @@ app.delete('/api/notes/:id', function (req, res) {
   // res.send('Got a DELETE request')
 })
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
+app.get("/notes", function(req, res) {
+  res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on http://localhost:" + PORT);
   });
