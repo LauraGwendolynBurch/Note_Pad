@@ -1,6 +1,7 @@
 var express = require("express");
 var path = require("path");
 const fs = require("fs");
+const database = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'))
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -13,11 +14,9 @@ app.use(express.static('public'))
 app.get("/api/notes", function(req, res) {
 
   // use the fs to read file
-  
   // then parse file contents with JSON.parse() to the real data
-
   // send the parsed data back to the client with res.json()
-  //  return res.json();
+  res.json(database);
 
 });
 
