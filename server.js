@@ -20,11 +20,26 @@ app.get("/api/notes", function(req, res) {
 
 });
 
+app.get("/api/notes/:id", function(req, res) {
+  var chosen = req.params.id;
+
+  for (var i = 0; i < database.length; i++) {
+    if (chosen === database[i].id) {
+      return res.json(database[i]);
+    }
+  }
+
+  return res.json(false);
+
+});
+
+
+
 app.post("/api/notes", function(req, res) {
   // access the POSTed data in req.body
   // create id
   var note = req.body
-  var id = database.length
+  var id = database.length+1
   note.id = id
   console.log(note.id, id)
   
@@ -41,23 +56,20 @@ app.post("/api/notes", function(req, res) {
 });
 
 app.delete('/api/notes/:id', function (req, res) {
-
+  var newId = req.params.id
   // access the id from 'req.params.id'
-
-  // use the fs to read file
-
-  // then parse file contents with JSON.parse() to the real data
-
+  const index = database.findIndex( fullData => fullData.id === newId)
+  database.splice(index,1)
+  fs.writeFile('./db/db.json', JSON.stringify(database), (err) => {
+    if (err) throw (err)
+    console.log("I work")
+  })
   // Optioin A
   // find the matching index using Array.findIndex()
   // remove the target element using Array.splice()
 
-  // optioin B
-  // use the Array.filter() method to filter out the matching element
-  // myArray = myArray.filter(({ id }) => id !== req.params.id)
-
   // return any type of success message
-  // res.send('Got a DELETE request')
+  res.json(database)
 })
 
 app.get("/notes", function(req, res) {
