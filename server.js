@@ -21,20 +21,23 @@ app.get("/api/notes", function(req, res) {
 });
 
 app.post("/api/notes", function(req, res) {
-
   // access the POSTed data in req.body
-
-  // use the fs to read file
+  // create id
+  var note = req.body
+  var id = database.length
+  note.id = id
+  console.log(note.id, id)
   
-  // then parse file contents with JSON.parse() to the real data
-
+  
+  database.push(note)
   // PUSH the req.body to the arr list 
-
+  fs.writeFile('./db/db.json', JSON.stringify(database), (err) => {
+    if (err) throw (err)
+    console.log("I work")
+  })
   // JSON.stringify the arr list back into JSON string 
-
   // THEN save the contents back to the "db.json" wiith the fs.modual
-
-  return res.json();
+  return res.json(note);
 });
 
 app.delete('/api/notes/:id', function (req, res) {
