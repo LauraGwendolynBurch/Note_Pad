@@ -1,6 +1,7 @@
 # Note_Pad
 
 ## Description
+This is an application that allows you to create notes you need to save, review later, and delete once you have finished the tasks.
 
 
 ## Table of Contents
@@ -34,13 +35,14 @@
 
 [Github Repo](https://github.com/LauraGwendolynBurch/Note_Pad)
 
+[Heroku App](https://tranquil-dawn-45425.herokuapp.com/)
+
 
 ## Installation
-* NPM i inquirer
+* NPM 
 * node.js
-* NPM Jest
-
-## User-Story
+* Heroku 
+* nodemon
 
 
 ## License
@@ -50,16 +52,11 @@
 ## Contribution
 Clone repo | Push changes | Create Pull request
 
-## Test
-![video of project]()
+## Image of project
+![Sample Image of Project](./images/noteOne.png)
 
-![Sample gif](./images/video.gif)
-
-## Image of sample code
-![Sample Image of Project](./images/samplecode1.png)
-
-## Image of sample code
-![Sample Image of Project](./images/samplecode.png)
+## Image of project
+![Sample Image of Project](./images/noteTwo.png)
 
 ## Credits
 Anna Conover (tutor)
