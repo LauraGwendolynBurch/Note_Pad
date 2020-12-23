@@ -4,7 +4,7 @@ const fs = require("fs");
 const database = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'))
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -39,7 +39,7 @@ app.post("/api/notes", function(req, res) {
   // access the POSTed data in req.body
   // create id
   var note = req.body
-  var id = "newId" + database.length
+  var id = "newId" + Math.floor(Date.now() / 1000);
   note.id = id
   console.log(note.id, id)
   
